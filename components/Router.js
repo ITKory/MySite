@@ -2,7 +2,7 @@ import Link from 'next/link'
 function NavBar() {
     return (
    
-      <nav class="navMenu">
+      <nav className="navMenu">
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -16,7 +16,7 @@ function NavBar() {
           <Link href="/films">
             <a>Films</a>
           </Link>
-          <div class="dot"></div>
+          <div className="dot"></div>
     </nav>
      
     )
