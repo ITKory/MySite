@@ -9,7 +9,9 @@ function NavBar() {
          
        
           <Link href="/todolist">
+        
             <a>To Do</a>
+     
           </Link>
          
        

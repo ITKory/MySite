@@ -11,8 +11,8 @@ body {
 
 
     .navMenu .dot {
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       background: #f889f8;
       border-radius: 50%;
       opacity: 0;
@@ -24,24 +24,17 @@ body {
 
     .navMenu {
       margin: 1.5rem;
-      
-      a:nth-child(4):hover ~ .dot {
-        -webkit-transform: translateX(285px);
-        transform: translateX(285px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
+ 
       a:nth-child(3):hover ~ .dot {
-        -webkit-transform: translateX(200px);
-        transform: translateX(200px);
+        -webkit-transform:  translate(225px,-15px);
+        transform: translate(225px,-15px);
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         opacity: 1;
       }
       a:nth-child(2):hover ~ .dot {
         -webkit-transform: translateX(110px);
-        transform: translateX(110px);
+        transform: translateX(107px);
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         opacity: 1;
@@ -49,7 +42,7 @@ body {
 
       a:nth-child(1):hover ~ .dot {
         -webkit-transform: translateX(30px);
-        transform: translateX(30px);
+        transform: translate(-10px,-15px);
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         opacity: 1;
