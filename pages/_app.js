@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import '../styles/style.scss'
 import '../styles/profile.scss'
  
-import NavBar from '../components/router';
+import NavBar from '../components/Router';
 import styles from '../styles/Home.module.scss'
 import Head from 'next/head'
 import Image from 'next/image'
