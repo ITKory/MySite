@@ -1,6 +1,6 @@
 import  { useState } from 'react'
-import FilmsQuery from './fetch.js'
-import Search from './search.js';
+import FilmsQuery from './Fetch.js'
+import Search from './Search.js';
  
 
  
