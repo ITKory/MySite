@@ -1,5 +1,5 @@
 import  { useState } from 'react'
-import FilmsQuery from './Fetch.js'
+import FilmsQuery from './Fetch.jsx'
 import Search from './Search.js';
  
 
