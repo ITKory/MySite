@@ -13,7 +13,7 @@ body {
     .navMenu .dot {
       width: 8px;
       height: 8px;
-      background: #f889f8;
+      background: #c216c2;
       border-radius: 50%;
       opacity: 0;
       -webkit-transform: translateX(30px);
@@ -60,7 +60,7 @@ body {
       
       }
       a:hover {
-        color: #af21af;
+        color: #c005c0;
       }
       a, a:visited, a:focus, a:active, a:hover{
         outline:0 none !important;
@@ -69,7 +69,7 @@ body {
     }
     
 
-      button {
+      .defaultButton {
       color: rgba( 0, 0, 0);
       margin: 10px;
       width: 10rem;
@@ -80,9 +80,13 @@ body {
       font-size:1rem ;
      
     }
-      button:hover{
+   .defaultButton:hover{
       color: rgb(255, 249, 249);
-      background-color:  rgb(27, 27, 27)
+      background-color:  rgb(27, 27, 27);
+    }
+    .defaultButton:focus{
+      outline:0 none !important;
+
     }
 
     .filmContent{
@@ -101,7 +105,7 @@ body {
       .filmCard {
         position: relative;
         width: 300px;
-        height: 400px;
+        height: 420px;
         margin: 0 auto;
         background: #000;
         border-radius: 15px;

@@ -2,11 +2,11 @@ import styles from '../styles/Home.module.scss'
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+
 const getItems = (count, offset = 0, text = "item") =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
         id: `item-${k + offset}-${new Date().getTime()}`,
         content: `${text}`,
-
     }));
 
 const reorder = (list, startIndex, endIndex) => {
@@ -35,6 +35,7 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 
 export default function ToDoList() {
     const [state, setState] = useState([]);
+    let validateTask = new RegExp(/^.{1,80}$/);
     function onDragEnd(result) {
         const { source, destination } = result;
         if (!destination) {
@@ -58,8 +59,17 @@ export default function ToDoList() {
         }
     };
 
-    function addNewItem() {
-        setState([...state, getItems(1, null, prompt('Task'))]);
+    function addNewItem(el) {
+        let taskValue = prompt('Minimal lenght is 50')
+        if (validateTask.test(taskValue)) {
+            el.push(...getItems(1, null, taskValue))
+            const newState = [...state];
+            setState(newState.filter(group => group.length));
+        } else
+            if (taskValue.length > 80)
+                alert('Max length is 80')
+            else
+                alert('Min length is 1')
     }
     function delItem(ind, index) {
         const newState = [...state];
@@ -70,68 +80,76 @@ export default function ToDoList() {
     }
     function addNewGroup() {
         setState([...state, getItems(1, null, 'item')]);
+
+
     }
 
     return (
-       <>
-                <div>
-                    <button
-                        type="button"
-                        onClick={() => addNewGroup()}
-                    > Add new group
-                    </button>
+        <>
+            <div>
+                <button
+                    className="defaultButton"
+                    type="button"
+                    onClick={() => addNewGroup()}
+                > Add new group
+                </button>
 
-                    <button
-                        type="button"
-                        onClick={() => addNewItem()}
-                    > Add new task
-                    </button>
+
+            </div>
+            <div>
+                <div className={styles.grid} >
+
+                    <DragDropContext onDragEnd={onDragEnd}>
+                        {state.map((el, ind) => (
+                            <Droppable key={ind} droppableId={`${ind}`}>
+
+                                {(provided, snapshot) => (
+                                    <div
+                                        className={styles.card}
+                                        ref={provided.innerRef}
+                                        {...provided.droppableProps}
+                                    >
+                                        <p>Title</p>
+                                        {el.map((item, index) => (
+                                            <Draggable
+                                                key={item.id}
+                                                draggableId={item.id}
+                                                index={index}
+                                            >
+                                                {(provided, snapshot) => (
+                                                    <div
+                                                        ref={provided.innerRef}
+                                                        {...provided.draggableProps}
+                                                        {...provided.dragHandleProps}
+                                                        className={styles.item}
+                                                    >
+                                                        <div>{item.content}</div>
+                                                        <button
+                                                            className={styles.delete}
+                                                            onClick={() => delItem(ind, index)}
+                                                        >X
+                                                        </button>
+                                                    </div>
+
+                                                )}
+                                            </Draggable>
+                                        ))}
+                                        {provided.placeholder}
+                                        <button
+                                            className="defaultButton"
+
+                                            onClick={() => addNewItem(el)}
+                                        > Add new task
+                                        </button>
+                                    </div>
+                                )}
+
+                            </Droppable>
+                        ))}
+                    </DragDropContext>
                 </div>
-                <div>
-                    <div className={styles.grid} >
-                        <DragDropContext onDragEnd={onDragEnd}>
-                            {state.map((el, ind) => (
-                                <Droppable key={ind} droppableId={`${ind}`}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            className={styles.card}
-                                            ref={provided.innerRef}
-                                            {...provided.droppableProps}
-                                        >
-                                            {el.map((item, index) => (
-                                                <Draggable
-                                                    key={item.id}
-                                                    draggableId={item.id}
-                                                    index={index}
-                                                >
-                                                    {(provided, snapshot) => (
-                                                        <div
-                                                            ref={provided.innerRef}
-                                                            {...provided.draggableProps}
-                                                            {...provided.dragHandleProps}
-                                                            className={styles.item}
-                                                        >
-                                                                <div>{item.content}</div>
-                                                                <button
-                                                                className={styles.delete}
-                                                                    type="button"
-                                                                    onClick={() => delItem(ind, index)}
-                                                                >
-                                                                    delete
-                                                                </button>
-                                                        </div>
-                                                    )}
-                                                </Draggable>
-                                            ))}
-                                            {provided.placeholder}
-                                        </div>
-                                    )}
-                                </Droppable>
-                            ))}
-                        </DragDropContext>
-                    </div>
-                </div>
-         </>
-       
+            </div>
+        </>
+
     )
 }

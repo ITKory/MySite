@@ -1,7 +1,7 @@
 
 import   { useState, useEffect } from 'react'
  
-import Card from './Card.jsx';
+import Card from './Card.js';
 function FilmsQuery({ film , page,items,updateItems }) {
     let uri = `https://www.omdbapi.com/?apikey=183ab52c&s=${film}&page=${page}`
     useEffect(() => {
@@ -18,6 +18,7 @@ function FilmsQuery({ film , page,items,updateItems }) {
             <>
                 {
                 items.map(item => (
+                    
                     <Card key={item.imdbID} filmID={item.imdbID} title={item.Title}  year={item.Year} image={item.Poster}/>
                 ))
                 }

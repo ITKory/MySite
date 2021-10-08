@@ -65,8 +65,14 @@
 .item{
     display: flex;
     margin: 1.25rem;
-    :hover{
+    div:hover{
         color: #eaeaea;
+     }
+     button:hover{
+color: red;
+width: 2rem;
+height:1.5rem;
+font-weight: 600;
      }
 
 }
@@ -77,11 +83,16 @@
   margin-left: 0.5rem;
 }
 .delete{
-    width: 5rem;
+    width: 1.2rem;
+    height: 1.2rem;
     margin: 0px;
     margin-left: 1.5rem;
-    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: dashed 3px rgb(0, 0, 0);
+   color: #eaeaea00;
+ 
 }
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

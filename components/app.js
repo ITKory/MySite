@@ -1,6 +1,6 @@
 import  { useState } from 'react'
-import FilmsQuery from './Fetch.jsx'
-import Search from './Search.jsx';
+import FilmsQuery from './fetch.js'
+import Search from './search.js';
  
 
  
@@ -16,7 +16,7 @@ export default function App() {
             <div className="filmContainer">
             <FilmsQuery updateItems={(oldI,newI)=>setItems([...oldI,...newI])} film={val} page={page} items={items}></FilmsQuery> 
             </div>
-            <button onClick={()=>{setPage(page+1);{<FilmsQuery film={val} page={page}/>}}}>More</button>
+            <button className="defaultButton" onClick={()=>{setPage(page+1);{<FilmsQuery film={val} page={page}/>}}}>More</button>
             </div>
         </> 
     )
