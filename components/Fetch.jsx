@@ -1,7 +1,7 @@
 
 import   { useState, useEffect } from 'react'
  
-import Card from './Card.js';
+import Card from './Card.jsx';
 function FilmsQuery({ film , page,items,updateItems }) {
     let uri = `https://www.omdbapi.com/?apikey=183ab52c&s=${film}&page=${page}`
     useEffect(() => {
