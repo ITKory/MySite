@@ -1,19 +1,32 @@
+ import mainPhoto from'../public/images/kbO_K0ZymJA.jpg'
  
+ 
+ 
+import gitLogo from'../public/images/github-icon.svg';
 function ProfileCard() {
-    return (
+  return (
 
-<div className="profile_content">
-  <div className="profile_card">
-    <div className="firstinfo"><img src="https://sun9-44.userapi.com/impg/Nelcg59BxI2d5xGxCArNwiwsQyGvUs9hiczFlA/_H5-HtjqWX4.jpg?size=1804x2160&quality=96&sign=6f45f93d9fd8b647130a8a20001484ca&type=album"/>
-      <div className="profileinfo">
-        <h1>Alexander Koryakin</h1>
-        <h3></h3>
-        <p className="bio">Lorem Lorem</p>
+    <div className="profile_content">
+      <div className="profile_card">
+        <div className="firstinfo"><img src={mainPhoto['src']}  />
+          <div className="profileinfo">
+            <h1>Alexander Koryakin</h1>
+            <h3></h3>
+            <p className="bio"><h5>PROGRAMMING SKILLS</h5><div>HTML/CSS</div> 
+            <div>ReactJS</div>
+             <div>React Native</div>
+             <div>Angular</div>
+             <div>JQ</div>
+             <div>Redux</div>
+             <div>C#</div>
+            <div>design patterns</div>
+             </p>
+            <p className="bio"><h5> PROFESSIONAL SKILLS </h5>I am communicative, hardworking and responsible person</p>
+          </div>
+        </div>
       </div>
+      <div className="badgescard"><a href="https://github.com/ITKory"><img src={gitLogo['src']} width="25px" alt='GitHub' /></a></div>
     </div>
-  </div>
-  <div className="badgescard"><a href="https://github.com/ITKory"><img src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" width="25px"/></a></div>
-</div>
-    )
+  )
 }
-export  default ProfileCard;
+export default ProfileCard;

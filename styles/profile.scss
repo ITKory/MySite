@@ -23,7 +23,7 @@
 }
 
 .profile_card{  
- @include dimensions( 500px,  100px);
+ @include dimensions( 800px,  100px);
   padding: 20px;
   border-radius: 3px;
   background-color: white;
@@ -33,8 +33,8 @@
   &:after {
     content: '';
     display: block;
-    width: 160px;
-    height: 300px;
+    width: 320px;
+    height: 380px;
     background:linear-gradient(180deg, #f5e5e5 0%, #4f1440 100%);
     
     position: absolute;
@@ -46,7 +46,7 @@
     padding: 10px 20px;
     border-radius: 3px;
     background-color: #ECECEC;
-    width: 480px; 
+    width: 780px; 
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     position: absolute;
     z-index: -1; 
@@ -78,14 +78,21 @@
     }
     p.bio{
       padding: 10px 0px;
-      color: #5A5A5A;
+      color: #000000;
       line-height: 1.2;
       font-style: initial;
     }  
   }
 }
-
-
+.bio div{
+  display: inline-block;
+  color:rgb(7, 0, 0);
+  border: 1px solid rgb(155,155,155);
+padding: 5px 10px;
+margin: 4px 4px 4px 0;
+font-weight: 500;
+background-color:rgba(245, 245, 245, 0.616)
+}
 @keyframes animatop{
   0%{ 
     opacity: 0;
@@ -118,10 +125,14 @@
 }
 @media (max-width: 600px) {
     .profile_card{
-        width: 350px;
+        width: 400px;
     }
    .badgescard{
-       width: 330px;
+       width: 380px;
+   }
+   .firstinfo img{
+     width: 150px;
+
    }
   
   }
