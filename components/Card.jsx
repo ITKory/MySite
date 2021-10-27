@@ -1,6 +1,6 @@
 import  { useState } from "react";
 function Card({ filmID, title, year, image }) {
-    let uri = `http://www.omdbapi.com/?i=${filmID}&plot=short&apikey=183ab52c`
+    let uri = `https://www.omdbapi.com/?i=${filmID}&plot=short&apikey=183ab52c`
     const [plot,setPlot] = useState()
      fetch(uri)
         .then(res => res.json())
