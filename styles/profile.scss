@@ -11,7 +11,6 @@
 @mixin dimensions($width: null, $height: null) { width: $width; min-height: $height; }
 
  
- 
   
 .devicons{
     image: url('https://www.hcs.harvard.edu/~jming/dist/img/github.png');
@@ -60,6 +59,7 @@
     opacity: 0.6;
     }
   }   
+  
 
 .firstinfo{
   @extend %flex;

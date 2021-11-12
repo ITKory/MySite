@@ -1,6 +1,6 @@
 
 import   { useState, useEffect } from 'react'
- 
+ //FIXME it will bw better
 import Card from './Card.jsx';
 function FilmsQuery({ film , page,items,updateItems }) {
     let uri = `https://www.omdbapi.com/?apikey=183ab52c&s=${film}&page=${page}`

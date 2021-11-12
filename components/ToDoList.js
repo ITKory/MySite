@@ -4,9 +4,10 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 
 const getItems = (count, offset = 0, text = "item") =>
-    Array.from({ length: count }, (v, k) => k).map(k => ({
+    Array.from({ length:count}, (v, k) => k).map(k => ({
         id: `item-${k + offset}-${new Date().getTime()}`,
         content: `${text}`,
+    
     }));
 
 const reorder = (list, startIndex, endIndex) => {
@@ -28,6 +29,8 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
+ 
+
 
     return result;
 };
@@ -54,13 +57,13 @@ export default function ToDoList() {
             const newState = [...state];
             newState[sInd] = result[sInd];
             newState[dInd] = result[dInd];
-
             setState(newState.filter(group => group.length));
+         
         }
     };
 
     function addNewItem(el) {
-        let taskValue = prompt('Minimal lenght is 50')
+        let taskValue = prompt('Max length is 80')
         if (validateTask.test(taskValue)) {
             el.push(...getItems(1, null, taskValue))
             const newState = [...state];
@@ -78,10 +81,12 @@ export default function ToDoList() {
             newState.filter(group => group.length)
         );
     }
-    function addNewGroup() {
-        setState([...state, getItems(1, null, 'item')]);
-
-
+    function addNewGroup(title) {
+        let res  = getItems(1, null, 'item')
+        res.title = title
+        setState([...state, res]);
+     
+console.log(state)
     }
 
     return (
@@ -90,7 +95,7 @@ export default function ToDoList() {
                 <button
                     className="defaultButton"
                     type="button"
-                    onClick={() => addNewGroup()}
+                    onClick={() => addNewGroup(prompt('title'))}
                 > Add new group
                 </button>
 
@@ -101,20 +106,23 @@ export default function ToDoList() {
 
                     <DragDropContext onDragEnd={onDragEnd}>
                         {state.map((el, ind) => (
-                            <Droppable key={ind} droppableId={`${ind}`}>
+                            <Droppable key={ind} droppableId={`${ind}`}  >
 
                                 {(provided, snapshot) => (
+
                                     <div
                                         className={styles.card}
                                         ref={provided.innerRef}
                                         {...provided.droppableProps}
                                     >
-                                        <p>Title</p>
+
+                                        <p>{el.title}</p>
                                         {el.map((item, index) => (
                                             <Draggable
                                                 key={item.id}
                                                 draggableId={item.id}
                                                 index={index}
+
                                             >
                                                 {(provided, snapshot) => (
                                                     <div

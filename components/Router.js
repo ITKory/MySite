@@ -9,14 +9,16 @@ function NavBar() {
          
        
           <Link href="/todolist">
-        
             <a>To Do</a>
-     
           </Link>
          
        
           <Link href="/films">
             <a>Films</a>
+          </Link>
+
+          <Link href="/pen">
+            <a>Pens</a>
           </Link>
           <div className="dot"></div>
     </nav>

@@ -1,7 +1,4 @@
- import mainPhoto from'../public/images/kbO_K0ZymJA.jpg'
- 
- 
- 
+import mainPhoto from'../public/images/kbO_K0ZymJA.jpg'
 import gitLogo from'../public/images/github-icon.svg';
 function ProfileCard() {
   return (
@@ -15,7 +12,6 @@ function ProfileCard() {
             <p className="bio"><h5>PROGRAMMING SKILLS</h5><div>HTML/CSS</div> 
             <div>ReactJS</div>
              <div>React Native</div>
-             <div>Angular</div>
              <div>JQ</div>
              <div>Redux</div>
              <div>C#</div>
